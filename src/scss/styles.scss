@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
+@import "variables";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 15px;
+  font-family: "Spartan", "Open Sans";
+}
+
+// .wrapper {
+//   width: 100%;
+// }
+
+header {
+  //   width: 100%;
+  height: 156px;
+  background: url("../images//bg-header-desktop.svg") $desaturated-dark-cyan;
+}
+
+.content {
+  min-height: calc(100vh - 156px);
+  background-color: $light-grayish-cyan;
+  padding-top: 50px;
+  position: relative;
+}
+
+.search-box {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
+  height: 50px;
+
+  .custom-select {
+    &__control {
+      min-height: 50px;
+      box-shadow: $box-shadow;
+    }
+
+    &__value-container {
+      gap: 20px;
+    }
+
+    &__multi-value {
+      background-color: $light-grayish-cyan;
+      font-size: 0.8rem;
+      border-radius: 5px;
+      margin: 0;
+
+      &__label {
+        color: $desaturated-dark-cyan;
+        font-weight: 700;
+        align-self: center;
+        padding: 0 10px;
+      }
+
+      &__remove {
+        width: 29px;
+        height: 29px;
+        background: url("../images/icon-remove.svg") center no-repeat
+          $desaturated-dark-cyan;
+
+        svg {
+          display: none;
+        }
+
+        &:hover {
+          background-color: $very-dark-grayish-cyan;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.job-list-container {
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  flex-direction: column;
+  gap: 20px;
+
+  .job-container {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    padding: 16px 25px;
+    align-items: center;
+    box-shadow: $box-shadow;
+
+    &.border-left {
+      border-left: 5px solid $desaturated-dark-cyan;
+    }
+
+    .logo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+    }
+
+    .job-description {
+      height: 88px;
+      margin-left: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__company-row {
+        font-weight: 700;
+        color: $desaturated-dark-cyan;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+
+        .label {
+          color: #eef6f6;
+          text-transform: uppercase;
+          border-radius: 15px;
+          font-size: 0.55rem;
+          padding: 5px;
+          display: flex;
+          height: 20px;
+          padding-top: 6px;
+
+          &:first-child {
+            margin-left: 10px;
+          }
+
+          &:nth-child(2) {
+            margin-left: 5px;
+          }
+
+          &__new {
+            background-color: $desaturated-dark-cyan;
+          }
+
+          &__featured {
+            background-color: $very-dark-grayish-cyan;
+            content: "FEATURED";
+          }
+        }
+      }
+
+      &__job-title {
+        font-weight: 700;
+        color: black;
+
+        &:hover {
+          color: $desaturated-dark-cyan;
+          cursor: pointer;
+        }
+      }
+
+      &__info-box {
+        display: flex;
+        gap: 20px;
+
+        .item {
+          color: $dark-grayish-cyan;
+          font-size: 0.7rem;
+          display: flex;
+
+          &:not(:last-child):after {
+            content: "";
+            margin-left: 20px;
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            align-self: center;
+            font-size: 1rem;
+            background: $dark-grayish-cyan;
+          }
+        }
+      }
+    }
+
+    .languages {
+      display: flex;
+      margin-left: auto;
+      gap: 15px;
+
+      &__item {
+        border-radius: 5px;
+        background-color: $light-grayish-cyan;
+        font-size: 0.8rem;
+        color: $desaturated-dark-cyan;
+        padding: 5px;
+        font-weight: 700;
+
+        &:hover {
+          color: $light-grayish-cyan;
+          background-color: $desaturated-dark-cyan;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
