@@ -24,26 +24,40 @@ header {
 .content {
   min-height: calc(100vh - 156px);
   background-color: $light-grayish-cyan;
-  padding-top: 50px;
-  position: relative;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-box {
   width: 80%;
-  position: absolute;
-  left: 50%;
-  top: -20px;
-  transform: translateX(-50%);
-  height: 50px;
+  min-height: 50px;
+  margin-top: -75px;
+  margin-bottom: 50px;
 
   .custom-select {
     &__control {
       min-height: 50px;
       box-shadow: $box-shadow;
+      padding: 0 25px;
+      border: none;
+
+      @media screen and (max-width: $tablets) {
+        padding: 10px 16px;
+      }
+
+      &:hover {
+        border: none;
+      }
     }
 
     &__value-container {
       gap: 20px;
+    }
+
+    &__input {
+      color: $desaturated-dark-cyan;
     }
 
     &__multi-value {
@@ -55,6 +69,7 @@ header {
       &__label {
         color: $desaturated-dark-cyan;
         font-weight: 700;
+        font-size: 0.7rem;
         align-self: center;
         padding: 0 10px;
       }
@@ -75,6 +90,69 @@ header {
         }
       }
     }
+
+    &__indicator-separator {
+      background: none;
+    }
+
+    &__indicators {
+      position: relative;
+    }
+
+    &__dropdown-indicator {
+      svg {
+        display: none;
+      }
+    }
+
+    &__placeholder {
+      color: $dark-grayish-cyan;
+    }
+
+    &__clear-indicator {
+      cursor: pointer;
+
+      svg {
+        display: none;
+      }
+
+      &:hover {
+        &::before {
+          text-decoration: underline;
+        }
+      }
+
+      &::before {
+        position: absolute;
+        content: "Clear";
+        right: 0;
+        font-size: 0.7rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $desaturated-dark-cyan;
+        font-weight: 700;
+      }
+    }
+
+    &_menu {
+      box-shadow: $box-shadow;
+    }
+
+    &__option {
+      font-size: 0.8rem;
+      padding: 10px 35px;
+      color: $desaturated-dark-cyan;
+
+      &:hover,
+      &--is-focused,
+      &--is-selected {
+        background-color: $light-grayish-cyan;
+      }
+    }
+  }
+
+  @media screen and (max-width: $desktops) {
+    width: 90%;
   }
 }
 
@@ -86,6 +164,11 @@ header {
   flex-direction: column;
   gap: 20px;
 
+  @media screen and (max-width: $desktops) {
+    width: 90%;
+    gap: 35px;
+  }
+
   .job-container {
     width: 100%;
     height: 120px;
@@ -96,6 +179,15 @@ header {
     align-items: center;
     box-shadow: $box-shadow;
 
+    @media screen and (max-width: $tablets) {
+      flex-direction: column;
+      align-items: normal;
+      position: relative;
+      height: 100%;
+      padding-top: 30px;
+      padding-bottom: 15px;
+    }
+
     &.border-left {
       border-left: 5px solid $desaturated-dark-cyan;
     }
@@ -104,6 +196,18 @@ header {
       width: 88px;
       height: 88px;
       border-radius: 50%;
+
+      @media screen and (max-width: $tablets) {
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        top: -22px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
 
     .job-description {
@@ -112,6 +216,19 @@ header {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media screen and (min-width: $tablets) {
+        min-width: 215px;
+      }
+
+      @media screen and (max-width: $tablets) {
+        border-bottom: 1px solid $dark-grayish-cyan;
+        margin-left: 0;
+        height: auto;
+        gap: 2vw;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      }
 
       &__company-row {
         font-weight: 700;
@@ -151,7 +268,7 @@ header {
 
       &__job-title {
         font-weight: 700;
-        color: black;
+        color: $very-dark-grayish-cyan;
 
         &:hover {
           color: $desaturated-dark-cyan;
@@ -161,7 +278,7 @@ header {
 
       &__info-box {
         display: flex;
-        gap: 20px;
+        gap: 1vw;
 
         .item {
           color: $dark-grayish-cyan;
@@ -170,7 +287,7 @@ header {
 
           &:not(:last-child):after {
             content: "";
-            margin-left: 20px;
+            margin-left: 1vw;
             height: 5px;
             width: 5px;
             border-radius: 50%;
@@ -182,10 +299,20 @@ header {
       }
     }
 
-    .languages {
+    .labels {
       display: flex;
       margin-left: auto;
       gap: 15px;
+      flex-wrap: wrap;
+
+      @media screen and (min-width: $tablets) {
+        justify-content: flex-end;
+      }
+
+      @media screen and (max-width: $tablets) {
+        margin-right: auto;
+        margin-left: 0;
+      }
 
       &__item {
         border-radius: 5px;
@@ -201,6 +328,12 @@ header {
           cursor: pointer;
         }
       }
+    }
+
+    &--empty {
+      justify-content: center;
+      font-weight: 700;
+      color: $desaturated-dark-cyan;
     }
   }
 }
