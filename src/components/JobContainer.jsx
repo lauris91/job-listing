@@ -1,5 +1,4 @@
 import React from "react";
-// import { homepage } from "../../package.json";
 
 const JobContainer = ({
   job: {
@@ -22,8 +21,7 @@ const JobContainer = ({
       className={`job-container ${id === 1 || id === 2 ? "border-left" : ""}`}
     >
       <div className="logo">
-        {/* <img alt="company-logo" src={`${homepage}/images/${logo}`} /> */}
-        <img alt="company-logo" src={`./images/${logo}`} />
+        <img alt="company-logo" src={`${logo}`} />
       </div>
       <div className="job-description">
         <div className="job-description__company-row">

@@ -280,6 +280,10 @@ header {
         display: flex;
         gap: 1vw;
 
+        @media screen and (max-width: $mobile) {
+          gap: 2vw;
+        }
+
         .item {
           color: $dark-grayish-cyan;
           font-size: 0.7rem;
@@ -294,6 +298,10 @@ header {
             align-self: center;
             font-size: 1rem;
             background: $dark-grayish-cyan;
+
+            @media screen and (max-width: $mobile) {
+              margin-left: 8px;
+            }
           }
         }
       }
